@@ -1,2 +1,7 @@
+## Lien du Streamlit
+
+[Accéder à l'application Streamlit](https://spotifydata.streamlit.app/)
+
 ## Synthèse de l'analyse
-[Lire la synthèse (HTML)]([./Synthese_Spotify.pdf](https://shillingford-laurie.github.io/streamlit-spotify/))
+
+[Lire la synthèse (HTML)](https://shillingford-laurie.github.io/streamlit-spotify/)
