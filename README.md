@@ -1,2 +1,2 @@
 ## Synthèse de l'analyse
-[Lire la synthèse (PDF)](./Synthese_Spotify.pdf)
+[Lire la synthèse (HTML)]([./Synthese_Spotify.pdf](https://shillingford-laurie.github.io/streamlit-spotify/))
