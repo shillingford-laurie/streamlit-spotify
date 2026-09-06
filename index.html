@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Document explicatif des graphiques — Pages 06 à 09</title>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; color: #2b2b2b; max-width: 800px; margin: 30px auto; line-height: 1.6; }
+  h1 { color: #1a1a5e; font-size: 26px; border-bottom: 3px solid #1a1a5e; padding-bottom: 8px; }
+  h2 { color: #1a1a5e; font-size: 19px; margin-top: 70px; border-left: 5px solid #1db954; padding-left: 10px; page-break-after: avoid; }
+  h3 { color: #1db954; font-size: 15px; margin-top: 20px; page-break-after: avoid; }
+  .question { background: #f0f7f2; border-left: 4px solid #1db954; padding: 10px 15px; font-style: italic; margin: 15px 0; }
+  .note { background: #eef1f8; border-left: 4px solid #1a1a5e; padding: 10px 15px; margin: 15px 0; font-size: 14px; }
+  .vigilance { background: #fdf3e7; border-left: 4px solid #e67e22; padding: 10px 15px; margin: 15px 0; font-size: 14px; }
+  table { border-collapse: collapse; width: 100%; margin: 15px 0; font-size: 14px; }
+  th { background: #1a1a5e; color: white; padding: 8px; text-align: left; }
+  td { border: 1px solid #ccc; padding: 8px; }
+  tr:nth-child(even) { background: #f5f5f5; }
+  ul { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .page-sep { border: none; border-top: 2px dashed #1db954; opacity: 0.35; margin: 70px 0 0 0; }
+  @media print { body { margin: 10px; } h2 { page-break-after: avoid; } }
+</style>
+</head>
+<body>
+
+<h1>DOCUMENT EXPLICATIF DES GRAPHIQUES — PAGES 06 À 09</h1>
+
+<p><strong>Application :</strong> spotifydata.streamlit.app | Dataset Spotify (1952–2025), 8 582 titres, 2 547 artistes</p>
+
+<p>Ces quatre pages correspondent à mes quatre axes dans le cahier des charges du projet collaboratif. Chaque section reprend la question d'origine, les chiffres produits par le graphique et leur analyse.</p>
+
+<div class="note"><strong>Rappel indicateur :</strong> le <em>track_popularity</em> est un score de 0 à 100 calculé par l'algorithme de Spotify, basé principalement sur le <strong>nombre d'écoutes récentes</strong>. Il mesure donc une popularité <em>actuelle</em> du morceau, et non un succès historique cumulé.</div>
+
+<!-- ============ PAGE 06 ============ -->
+<h2>PAGE 06 — ONE-HIT WONDERS VS ARTISTES RÉGULIERS</h2>
+
+<div class="question">Question : « Combien d'artistes n'ont placé qu'un seul titre au sommet par rapport à ceux qui y placent régulièrement tout un album ? »</div>
+
+<h3>Ce que montrent les données</h3>
+<p>La répartition des 2 547 artistes du dataset selon leur nombre de titres au sommet du classement.</p>
+
+<table>
+<tr><th>Indicateur</th><th>Valeur</th></tr>
+<tr><td>Artistes avec <strong>un seul titre</strong> au sommet</td><td><strong>1 628 (63,9 %)</strong></td></tr>
+<tr><td>Artistes avec <strong>plusieurs titres</strong> au sommet</td><td><strong>919 (36,1 %)</strong></td></tr>
+<tr><td>Ratio one-hit / multi-hits</td><td><strong>1 pour 1,77</strong></td></tr>
+</table>
+
+<h3>Analyse des données</h3>
+<ul>
+<li>Les deux catégories totalisent exactement 1 628 + 919 = <strong>2 547 artistes</strong>, soit l'intégralité des artistes du dataset : le graphique couvre l'ensemble du catalogue sans exclusion.</li>
+<li>Le constat principal est net : <strong>près de 2 artistes sur 3 n'ont placé qu'un seul titre au sommet</strong>. Le succès durable est l'exception, pas la règle.</li>
+<li>Le ratio de <strong>1,77</strong> se lit ainsi : pour chaque artiste capable de rééditer l'exploit, il y a près de <strong>2 artistes à succès unique</strong>.</li>
+<li>Ce résultat est d'autant plus significatif que le dataset couvre des oeuvres musicales pouvant dater jusqu'à <strong>73 ans</strong> (1952–2025). Parmi les 919 artistes « réguliers », certains ont maintenu une présence au sommet sur plusieurs décennies, ce qui rend cette minorité d'autant plus remarquable.</li>
+</ul>
+
+<p><strong>En résumé :</strong> l'industrie musicale produit massivement des succès ponctuels ; seuls environ <strong>un tiers des artistes</strong> parviennent à transformer un hit en carrière.</p>
+
+<hr class="page-sep">
+
+<!-- ============ PAGE 07 ============ -->
+<h2>PAGE 07 — DURÉE DES MORCEAUX ET POPULARITÉ</h2>
+
+<div class="question">Question : « La durée moyenne des morceaux a-t-elle évolué au fil des années de sortie et comment cela influence-t-elle leur popularité ? »</div>
+
+<h3>Ce que montrent les données</h3>
+<p>Trois niveaux de lecture : l'évolution de la durée moyenne par année de sortie, le croisement durée × popularité, et la distribution par décennie.</p>
+
+<table>
+<tr><th>Indicateur</th><th>Valeur</th></tr>
+<tr><td>Durée moyenne globale</td><td><strong>3,49 min</strong> (3 min 29 s)</td></tr>
+<tr><td>Pic historique (1969)</td><td><strong>4,57 min</strong> (4 min 34 s)</td></tr>
+<tr><td>Niveau 2025</td><td><strong>2,22 min</strong> (2 min 13 s)</td></tr>
+<tr><td>Baisse depuis le pic</td><td><strong>−2,35 min, soit −51 %</strong></td></tr>
+<tr><td>Durée la plus populaire</td><td><strong>entre 3 et 3,5 min</strong></td></tr>
+</table>
+
+<h3>Analyse des données</h3>
+<ul>
+<li><strong>L'évolution temporelle</strong> : la courbe atteint son sommet en <strong>1969 à 4,57 minutes</strong> (l'ère des formats album longs), puis entame une <strong>baisse continue et quasi ininterrompue</strong>. En 2025, la durée moyenne (2,22 min) a été <strong>divisée par plus de deux</strong> depuis le pic : les morceaux sont littéralement deux fois plus courts qu'en 1969.</li>
+<li><strong>Le lien avec la popularité</strong> : le croisement durée/popularité révèle un « sweet spot » entre <strong>3 et 3,5 minutes</strong>. Les formats plus longs sont pénalisés ; la durée optimale se situe donc légèrement au-dessus de la moyenne actuelle (3,49 min), ce qui suggère que le raccourcissement a encore une marge avant d'atteindre un point d'équilibre.</li>
+<li><strong>L'interprétation économique</strong> : ce raccourcissement traduit une <strong>adaptation directe au streaming</strong> : les algorithmes privilégient les écoutes répétées, les playlists enchaînent les titres, et une durée courte maximise le nombre d'écoutes complètes (et donc le score de popularité).</li>
+</ul>
+
+<div class="vigilance"><strong>Point de vigilance :</strong> le score de popularité étant basé sur les <strong>écoutes récentes</strong>, les titres courts (majoritairement récents) sont mécaniquement avantagés dans le croisement durée/popularité. Le lien durée → popularité est donc en partie induit par l'effet de période.</div>
+
+<hr class="page-sep">
+
+<!-- ============ PAGE 08 ============ -->
+<h2>PAGE 08 — SAISONNALITÉ DES SORTIES</h2>
+
+<div class="question">Question : « Les titres sortis en hiver ou en été sont-ils le plus dans le top du classement ? »</div>
+
+<h3>Ce que montrent les données</h3>
+<p>Le volume de titres du Top (popularité ≥ 70 %) réparti selon les 4 saisons de sortie.</p>
+
+<table>
+<tr><th>Saison</th><th>Titres dans le Top</th><th>Part</th></tr>
+<tr><td><strong>Automne</strong></td><td><strong>663</strong></td><td><strong>27,9 %</strong></td></tr>
+<tr><td>Été</td><td>≈ 626</td><td>26,4 %</td></tr>
+<tr><td>Printemps</td><td>≈ 603</td><td>25,4 %</td></tr>
+<tr><td><strong>Hiver</strong></td><td><strong>480</strong></td><td><strong>20,2 %</strong></td></tr>
+<tr><td><strong>Total Top (pop. ≥ 70 %)</strong></td><td><strong>2 373</strong></td><td>100 %</td></tr>
+</table>
+
+<h3>Analyse des données</h3>
+<ul>
+<li><strong>Réponse directe à la question : non.</strong> Ni l'hiver ni l'été ne dominent le classement : c'est <strong>l'automne</strong> qui arrive en tête avec 663 titres (27,9 %), et l'hiver qui ferme la marche avec seulement 480 titres (20,2 %).</li>
+<li>L'<strong>écart automne/hiver est de 183 titres</strong>, soit environ 7,7 points de pourcentage : l'écart reste <strong>modéré</strong>, la saisonnalité existe mais n'est pas déterminante. Un titre peut percer en toute saison.</li>
+<li><strong>Le paradoxe de l'hiver</strong> s'explique par le calendrier : les « sorties de fin d'année », souvent perçues comme hivernales, tombent majoritairement en <strong>novembre</strong>, donc en automne. La domination de l'automne traduit les <strong>stratégies marketing de rentrée</strong> et la préparation des sorties de fin d'année, période de forte consommation musicale (fêtes, bilans de l'année, playlists de Noël).</li>
+<li>La hiérarchie est par ailleurs resserrée : automne, été et printemps se tiennent dans un mouchoir de poche (25,4 % à 27,9 %). Seul l'hiver se détache négativement.</li>
+</ul>
+
+<p><strong>En résumé :</strong> sortir en automne maximise légèrement les chances d'intégrer le Top, mais la saison reste un facteur secondaire face à d'autres variables (genre, format, artiste).</p>
+
+<hr class="page-sep">
+
+<!-- ============ PAGE 09 ============ -->
+<h2>PAGE 09 — TITRES EXPLICITES : PROPORTION, SUPPORT ET POPULARITÉ</h2>
+
+<div class="question">Question : « Quelle est la proportion de titres explicites dans le dataset, quel type d'album (type et genre) contient la plus grande proportion de titres explicites, et est-ce que leur popularité moyenne diffère de celle des titres non-explicites ? »</div>
+
+<h3>Définition du label « explicit »</h3>
+<p>Une chanson reçoit ce label si elle comporte :</p>
+<ul>
+<li><strong>Un langage vulgaire</strong> : des gros mots ou des insultes.</li>
+<li><strong>Des références sexuelles</strong> : un contenu ou un comportement à caractère sexuel explicite.</li>
+<li><strong>De la violence</strong> : des descriptions de violences physiques ou mentales.</li>
+<li><strong>Un langage discriminatoire</strong> : des propos haineux ou offensants.</li>
+</ul>
+
+<h3>Ce que montrent les données</h3>
+
+<p><strong>1. Proportion globale</strong></p>
+<table>
+<tr><th>Indicateur</th><th>Valeur</th></tr>
+<tr><td>Part du catalogue classé explicite</td><td><strong>25 %</strong> (1 titre sur 4)</td></tr>
+</table>
+
+<p><strong>2. Répartition par type de support</strong></p>
+<table>
+<tr><th>Support</th><th>Part de titres explicites</th><th>Volume</th></tr>
+<tr><td><strong>Albums</strong></td><td><strong>26,31 %</strong></td><td>1 541 titres</td></tr>
+<tr><td>Compilations</td><td><strong>7,30 %</strong></td><td>—</td></tr>
+</table>
+
+<p><strong>3. Popularité moyenne (explicite vs non-explicite)</strong></p>
+<table>
+<tr><th>Catégorie</th><th>Popularité moyenne</th></tr>
+<tr><td>Titres explicites</td><td><strong>57,8 / 100</strong></td></tr>
+<tr><td>Titres non-explicites</td><td><strong>50,5 / 100</strong></td></tr>
+<tr><td>Écart</td><td><strong>+7,3 points</strong></td></tr>
+</table>
+
+<h3>Analyse des données</h3>
+<ul>
+<li><strong>Proportion</strong> : 25 % du catalogue est concerné, le contenu explicite est un phénomène <strong>structurel</strong>, pas marginal.</li>
+<li><strong>Par support</strong> : les <strong>albums concentrent massivement l'explicite</strong> (26,31 %), soit près de <strong>4 fois plus</strong> que les compilations (7,30 %). Cela s'explique par la nature des formats : l'album est l'espace d'expression créative assumée de l'artiste, tandis que la compilation est une sélection orientée grand public, qui dilue les contenus crus. Les 1 541 titres explicites d'albums représentent de surcroît la grande majorité des contenus explicites du catalogue.</li>
+<li><strong>Par genre (avec un point méthodologique clé)</strong> : un <strong>filtre d'au moins 50 titres par genre</strong> a été appliqué pour écarter les biais des très petits échantillons (un genre de 5 titres dont 3 explicites afficherait un trompeur « 60 % »). Les résultats font émerger une <strong>nette domination des styles urbains</strong> : <strong>emo rap/cloud rap à 98,4 %</strong> et <strong>rap/hip hop à 96 %</strong> de titres explicites. Dans ces genres, le label est quasi systématique : il relève davantage d'un <strong>marqueur culturel et d'écriture assumé</strong> que d'une contrainte subie.</li>
+<li><strong>Popularité</strong> : les titres explicites surperforment de <strong>+7,3 points</strong> (57,8 contre 50,5). L'explication la plus probable tient à la <strong>surreprésentation des genres urbains</strong> (rap, hip hop, emo rap) parmi les titres explicites : ce sont des genres très écoutés, portés par un public jeune et très actif sur la plateforme, ce qui alimente directement le score d'écoutes récentes.</li>
+</ul>
+
+<div class="vigilance"><strong>Point de vigilance :</strong> corrélation ≠ causalité. Ce n'est pas le label « explicite » qui crée la popularité, mais le fait qu'il soit associé à des genres et des publics qui le sont. Le label explicite est donc un <strong>indicateur</strong> de performance plus qu'une <strong>cause</strong>.</div>
+
+<hr class="page-sep">
+
+<!-- ============ SYNTHÈSE ============ -->
+<h2>SYNTHÈSE TRANSVERSALE DES QUATRE PAGES</h2>
+
+<table>
+<tr><th>Page</th><th>Constat chiffré</th><th>Enseignement</th></tr>
+<tr><td>06 : One-hit wonders</td><td>63,9 % d'artistes à titre unique (ratio 1 / 1,77)</td><td>Le succès durable ne concerne qu'un tiers des artistes</td></tr>
+<tr><td>07 : Durée</td><td>4,57 min (1969) → 2,22 min (2025), soit −51 % ; optimum 3–3,5 min</td><td>Le format se raccourcit sous l'effet du streaming</td></tr>
+<tr><td>08 : Saisonnalité</td><td>Automne 27,9 % vs Hiver 20,2 % (écart 183 titres)</td><td>L'automne favorise l'entrée dans le Top, mais l'effet reste modéré</td></tr>
+<tr><td>09 : Explicite</td><td>25 % du catalogue ; +7,3 points de popularité ; 98,4 % chez l'emo rap</td><td>L'explicite, concentré dans les styles urbains et les albums, est corrélé à une meilleure popularité</td></tr>
+</table>
+
+<p>Ces quatre constats se recoupent : le profil du titre qui performe aujourd'hui est un titre <strong>court</strong>, souvent <strong>issu d'un album</strong>, potentiellement <strong>explicite</strong>, et sorti à l'<strong>automne</strong> pour maximiser ses chances d'intégrer le Top.</p>
+
+</body>
+</html>
