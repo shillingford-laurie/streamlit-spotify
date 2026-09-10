@@ -22,7 +22,7 @@ Conclure sur des insights métiers exploitables
 
 ## Technologies utilisées
 
-    Pyhton / Pandas
+    Pyhton / Pandas / NumPy
     Plotly / Matplotlib /Seaborn
     Streamlit 
 
